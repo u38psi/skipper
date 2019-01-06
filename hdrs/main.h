@@ -6,7 +6,7 @@
 #include "init.h"
 #include "ret.h"
 #include "error.h"
-
+#include "textures.h"
 
 
 #endif
