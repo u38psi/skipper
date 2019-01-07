@@ -1,4 +1,4 @@
-#include "hdrs/ret.h"
+#include "../hdrs/ret.h"
 
 int quit(Window *window, int ret)
 {
@@ -9,4 +9,3 @@ int quit(Window *window, int ret)
 	if (ret)
 		error(ret);
 }
-

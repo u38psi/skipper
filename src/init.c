@@ -1,4 +1,4 @@
-#include "hdrs/init.h"
+#include "../hdrs/init.h"
 
 int initFlags(Window *window)
 {
@@ -6,13 +6,13 @@ int initFlags(Window *window)
 	{
 		error(1);
 	}
-	
+
 }
 
 int createWindow(Window *window)
 {
 	window->window = SDL_CreateWindow(window->title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, window->width, window->height, window->windowFlags);
-	
+
 	if (!window->window)
 	{
 		error(1);
