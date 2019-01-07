@@ -3,23 +3,26 @@
 
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
+#include "init.h"
 #include "error.h"
 
 typedef struct Texture
 {
+	char *imgPath;
+	float scale;
 	int xpos;
 	int ypos;
 	int width;
 	int height;
-	char *imgPath;
+	char vel;
 	SDL_Rect dstR;
 	SDL_Texture *texture;
 	SDL_Surface *surface;
 
 } Texture;
 
-void createTexture(SDL_Renderer *renderer, Texture *texture);
+void createTexture(Window *window, Texture *texture);
 
-void renderTexture(SDL_Renderer *renderer, Texture *texture);
+void renderTexture(Window *window, Texture *texture);
 
 #endif

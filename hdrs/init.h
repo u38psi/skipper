@@ -11,9 +11,9 @@ typedef struct Window
 	uint32_t initFlags;
 	uint32_t windowFlags;
 	uint32_t renderFlags;
-	int renderIndex;	
-	short width;
-	short height;
+	int renderIndex;
+	int width;
+	int height;
 	char *title;
 } Window;
 

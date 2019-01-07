@@ -11,7 +11,11 @@ int initFlags(Window *window)
 
 int createWindow(Window *window)
 {
-	window->window = SDL_CreateWindow(window->title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, window->width, window->height, window->windowFlags);
+	window->window = SDL_CreateWindow(window->title,
+																		SDL_WINDOWPOS_CENTERED,
+																		SDL_WINDOWPOS_CENTERED,
+																		window->width, window->height,
+																		window->windowFlags);
 
 	if (!window->window)
 	{
@@ -22,7 +26,9 @@ int createWindow(Window *window)
 
 int createRenderer(Window *window)
 {
-	window->renderer = SDL_CreateRenderer(window->window, window->renderIndex, window->renderFlags);
+	window->renderer = SDL_CreateRenderer(window->window,
+																				window->renderIndex,
+																				window->renderFlags);
 
 	if (!window->renderer)
 	{

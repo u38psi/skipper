@@ -1,27 +1,29 @@
 #include "../hdrs/textures.h"
 
-void createTexture(SDL_Renderer *renderer, Texture *texture)
+void createTexture(Window *window, Texture *texture)
 {
 	texture->surface = IMG_Load(texture->imgPath);
 	if (!texture->surface)
 		error(1);
 
-	texture->texture = SDL_CreateTextureFromSurface(renderer, texture->surface);
+	texture->texture = SDL_CreateTextureFromSurface(window->renderer, texture->surface);
 	if (!texture->texture)
 		error(1);
 
-	texture->dstR.x = texture->xpos;
-	texture->dstR.y = texture->ypos;
-	texture->dstR.w = texture->width;
-	texture->dstR.h = texture->height;
+	SDL_QueryTexture(texture->texture, NULL, NULL, &texture->width, &texture->height);
 
 	SDL_FreeSurface(texture->surface);
 
 }
 
-void renderTexture(SDL_Renderer *renderer, Texture *texture)
+void renderTexture(Window *window, Texture *texture)
 {
-	if (SDL_RenderCopy(renderer, texture->texture, NULL, &texture->dstR))
+	texture->dstR.x = texture->xpos;
+	texture->dstR.y =	texture->ypos;
+	texture->dstR.w = texture->width*texture->scale;
+	texture->dstR.h = texture->height*texture->scale;
+
+	if (SDL_RenderCopy(window->renderer, texture->texture, NULL, &texture->dstR))
 		error(1);
 
 

@@ -7,6 +7,7 @@
 #include "ret.h"
 #include "error.h"
 #include "textures.h"
+#include "enemyHndl.h"
 
 
 #endif

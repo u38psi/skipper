@@ -1,0 +1,5 @@
+Bullet shot
+renderRow checks if a certain area is colliding with Bullet
+this area is changed every loop
+if bullet is on that area it will set a flag so it doesn't render next function call
+if bullet is on that area the bullet will not render and shot will be set to zero
