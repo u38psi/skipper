@@ -10,10 +10,10 @@ void createTexture(SDL_Renderer *renderer, Texture *texture)
 	if (!texture->texture)
 		error(1);
 
-	texture->dstR.xpos = texture->xpos;
-	texture->dstR.ypos = texture->ypos;
-	texture->dstR.width = texture->width;
-	texture->dstR.height = texture->height;
+	texture->dstR.x = texture->xpos;
+	texture->dstR.y = texture->ypos;
+	texture->dstR.w = texture->width;
+	texture->dstR.h = texture->height;
 
 	SDL_FreeSurface(texture->surface);
 
