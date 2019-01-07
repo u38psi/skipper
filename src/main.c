@@ -9,14 +9,7 @@ int main(int argc, char *argv[])
 	initFlags(&mainWin);
 	createWindow(&mainWin);
 	createRenderer(&mainWin);
-
 	createTexture(mainWin.renderer, &skipper);
-
-	const SDL_Rect dstR = {skipper.xpos, skipper.ypos, skipper.width, skipper.height};
-
-	SDL_RenderClear(mainWin.renderer);
-	SDL_RenderCopy(mainWin.renderer, skipper.texture, NULL, &dstR);
-	SDL_RenderPresent(mainWin.renderer);
 
 	SDL_Event event;
 
@@ -25,7 +18,16 @@ int main(int argc, char *argv[])
 	while(game)
 	{
 
-		while (SDL_PollEvent(&event))
+		SDL_RenderClear(mainWin.renderer);
+		renderTexture(mainWin.renderer, &skipper);
+		SDL_RenderPresent(mainWin.renderer);
+
+		SDL_PollEvent(&event);
+
+		if (SDL_QuitRequested())
+				quit(&mainWin, 0);
+
+		switch (event.type)
 		{
 			if (SDL_QuitRequested())
 				quit(&mainWin, 0);
@@ -44,6 +46,9 @@ int main(int argc, char *argv[])
 					}
 			}
 		}
+
+		//Update
+
 
 	}
 

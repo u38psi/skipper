@@ -12,7 +12,6 @@ typedef struct Texture
 	int width;
 	int height;
 	char *imgPath;
-	SDL_Rect srcR;
 	SDL_Rect dstR;
 	SDL_Texture *texture;
 	SDL_Surface *surface;
@@ -20,5 +19,7 @@ typedef struct Texture
 } Texture;
 
 void createTexture(SDL_Renderer *renderer, Texture *texture);
+
+void renderTexture(SDL_Renderer *renderer, Texture *texture);
 
 #endif
