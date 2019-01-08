@@ -1,27 +1,21 @@
 #include "../hdrs/enemyHndl.h"
 
-void createEnemyRow(Texture *enemy, Window *window,
-                    char *path, int xOff, int yOff,
-                    int padding, float scale)
+void renderEnemyRow(Texture *texture, Texture* collider, Window *window,
+                    int size, int xOff, int yOff, int padding)
 {
-  int offset = 0;
-  for (int i = 0; i <= sizeof(enemy); i++)
+  for (int i = 0; i < size; i++)
   {
-    enemy[i].imgPath = path;
-    enemy[i].scale = scale;
-    createTexture(window, &enemy[1]);
-
-    enemy[i].xpos = xOff+offset;
-    enemy[i].ypos = yOff;
-    offset += padding;
-
+    texture->xpos = xOff;
+    texture->ypos = yOff;
+    if (collider->ypos <= texture->ypos+texture->height*texture->scale &&
+        collider->xpos >= texture->xpos-texture->width*texture->scale &&
+        collider->xpos <= texture->xpos+texture->width*texture->scale)
+    {
+      shot = 0;
+      continue;
+    }
+    renderTexture(window, texture);
+    xOff += padding;
   }
-}
 
-void renderEnemyRow(Window *window, Texture *enemy)
-{
-  for (int i = 0; i <= sizeof(enemy); i++)
-  {
-    renderTexture(window, &enemy[i]);
-  }
 }

@@ -7,6 +7,7 @@ int initFlags(Window *window)
 		error(1);
 	}
 
+	return 0;
 }
 
 int createWindow(Window *window)
@@ -22,6 +23,8 @@ int createWindow(Window *window)
 		error(1);
 	}
 
+	return 0;
+
 }
 
 int createRenderer(Window *window)
@@ -34,4 +37,6 @@ int createRenderer(Window *window)
 	{
 		error(1);
 	}
+
+	return 0;
 }

@@ -5,11 +5,9 @@
 #include "SDL2/SDL_image.h"
 #include "textures.h"
 #include "init.h"
+#include "main.h"
 
-void createEnemyRow(Texture *enemyclear, Window *window,
-                    char *path, int xOff, int yOff,
-                    int padding, float scale);
-
-void renderEnemyRow(Window *window, Texture *enemy);
+void renderEnemyRow(Texture *texture, Texture *collider, Window *window,
+                    int size, int xOff, int yOff, int padding);
 
 #endif

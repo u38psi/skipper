@@ -17,8 +17,6 @@ typedef struct Window
 	char *title;
 } Window;
 
-char game;
-
 int initFlags(Window *window);
 
 int createWindow(Window *window);

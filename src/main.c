@@ -2,9 +2,6 @@
 
 int main(int argc, char *argv[])
 {
-
-	char shot;
-
 	SDL_Event event;
 
 	Window mainWin = {NULL, NULL,
@@ -15,8 +12,8 @@ int main(int argc, char *argv[])
 
 	Texture skipper = {"sprites/img_skipper.png", 0.2f};
 	Texture bullet = {"sprites/img_bullet.png", 0.15f};
-
-	Texture donald1[7];
+	Texture donald1 = {"sprites/img_donald.png", 0.04f};
+	Texture donald2 = {"sprites/img_donald2.png", 0.1f};
 
 	initFlags(&mainWin);
 
@@ -25,8 +22,8 @@ int main(int argc, char *argv[])
 
 	createTexture(&mainWin, &skipper);
 	createTexture(&mainWin, &bullet);
-
-	createEnemyRow(donald1, &mainWin, "sprites/img_donald.png", 50, 60, 100, 0.2f);
+	createTexture(&mainWin, &donald1);
+	createTexture(&mainWin, &donald2);
 
 	skipper.xpos = (mainWin.width/2)-80;
 	skipper.ypos = mainWin.height-(skipper.height*skipper.scale);
@@ -41,7 +38,9 @@ int main(int argc, char *argv[])
 
 		renderTexture(&mainWin, &skipper);
 
-		renderEnemyRow(&mainWin, donald1);
+		renderEnemyRow(&donald1, &bullet, &mainWin, 6, 50, 60, 100);
+		renderEnemyRow(&donald2, &bullet, &mainWin, 6, 70, 120, 100);
+		renderEnemyRow(&donald2, &bullet, &mainWin, 6, 70, 180, 100);
 
 		if (shot)
 			renderTexture(&mainWin, &bullet);
@@ -49,7 +48,6 @@ int main(int argc, char *argv[])
 		SDL_RenderPresent(mainWin.renderer);
 
 		SDL_PollEvent(&event);
-
 		if (SDL_QuitRequested())
 			quit(&mainWin, 0);
 

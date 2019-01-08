@@ -9,5 +9,7 @@
 #include "textures.h"
 #include "enemyHndl.h"
 
+char game;
+char shot;
 
 #endif

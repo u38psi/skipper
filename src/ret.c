@@ -8,4 +8,6 @@ int quit(Window *window, int ret)
 	SDL_Quit();
 	if (ret)
 		error(ret);
+
+	return 0;
 }
