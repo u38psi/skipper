@@ -4,16 +4,12 @@
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
 #include "textures.h"
+#include "init.h"
 
-typedef struct EnemyRow
-{
-  Texture *texture;
-  Window *window;
-  int initXOff;
-  int xOff, yOff;
-  int x1, x2, y;
-} EnemyRow;
+void createEnemyRow(Texture *enemyclear, Window *window,
+                    char *path, int xOff, int yOff,
+                    int padding, float scale);
 
-void renderRow(EnemyRow *enemy, int amount, Texture *bullet);
+void renderEnemyRow(Window *window, Texture *enemy);
 
 #endif
